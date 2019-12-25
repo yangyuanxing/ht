@@ -1,0 +1,22 @@
+{
+  "modified": "Tue Dec 24 2019 19:15:59 GMT+0800 (中国标准时间)",
+  "background": "rgb(0,0,0)",
+  "width": 204,
+  "height": 48,
+  "attachStyle": "close",
+  "comps": [
+    {
+      "type": "text",
+      "text": "BONC",
+      "align": "center",
+      "color": "rgb(255,255,255)",
+      "font": "24px arial, sans-serif",
+      "rect": [
+        42.93149,
+        6.25159,
+        118.0751,
+        35.49683
+      ]
+    }
+  ]
+}

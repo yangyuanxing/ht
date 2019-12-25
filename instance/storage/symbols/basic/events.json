@@ -1,0 +1,65 @@
+{
+  "modified": "Wed Dec 11 2019 14:29:43 GMT+0800 (中国标准时间)",
+  "dataBindings": [
+    {
+      "attr": "border-color",
+      "valueType": "Color"
+    },
+    {
+      "attr": "bgc",
+      "valueType": "Color"
+    }
+  ],
+  "width": 100,
+  "height": 100,
+  "comps": [
+    {
+      "type": "oval",
+      "background": {
+        "func": "attr@bgc",
+        "value": "#D8D8D8"
+      },
+      "borderWidth": 1,
+      "borderColor": {
+        "func": "attr@border-color",
+        "value": "#979797"
+      },
+      "pixelPerfect": true,
+      "displayName": "round",
+      "rect": [
+        0,
+        0,
+        100,
+        100
+      ]
+    },
+    {
+      "type": "star",
+      "background": {
+        "func": "attr@bgc",
+        "value": "rgb(247,247,247)"
+      },
+      "borderWidth": 1,
+      "borderColor": {
+        "func": "attr@border-color",
+        "value": "#38373B"
+      },
+      "pixelPerfect": true,
+      "displayName": "star",
+      "scaleX": {
+        "func": "attr@starScale",
+        "value": 1
+      },
+      "scaleY": {
+        "func": "attr@starScale",
+        "value": 1
+      },
+      "rect": [
+        25,
+        25,
+        50,
+        50
+      ]
+    }
+  ]
+}

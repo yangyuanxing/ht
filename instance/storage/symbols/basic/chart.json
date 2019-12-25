@@ -1,0 +1,329 @@
+{
+  "modified": "Mon Dec 23 2019 19:35:53 GMT+0800 (中国标准时间)",
+  "dataBindings": [
+    {
+      "attr": "length1",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length2",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length3",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length4",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length5",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length6",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length7",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length8",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length9",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length10",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length11",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length12",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length13",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length14",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length15",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    },
+    {
+      "attr": "length16",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    }
+  ],
+  "width": 100,
+  "height": 100,
+  "comps": [
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length1",
+        "value": 1
+      },
+      "rect": [
+        0,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length16",
+        "value": 1
+      },
+      "rect": [
+        97.33028,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length2",
+        "value": 1
+      },
+      "rect": [
+        6.48869,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length3",
+        "value": 1
+      },
+      "rect": [
+        12.97737,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length4",
+        "value": 1
+      },
+      "rect": [
+        19.46606,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length5",
+        "value": 1
+      },
+      "rect": [
+        25.95474,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length6",
+        "value": 1
+      },
+      "rect": [
+        32.44343,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length7",
+        "value": 1
+      },
+      "rect": [
+        38.93211,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length8",
+        "value": 1
+      },
+      "rect": [
+        45.4208,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length9",
+        "value": 1
+      },
+      "rect": [
+        51.90948,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length10",
+        "value": 1
+      },
+      "rect": [
+        58.39817,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length11",
+        "value": 1
+      },
+      "rect": [
+        64.88685,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length12",
+        "value": 1
+      },
+      "rect": [
+        71.37554,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length13",
+        "value": 1
+      },
+      "rect": [
+        77.86422,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length14",
+        "value": 1
+      },
+      "rect": [
+        84.35291,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#39CA85",
+      "borderColor": "#979797",
+      "fillClipPercentage": {
+        "func": "attr@length15",
+        "value": 1
+      },
+      "rect": [
+        90.84159,
+        6.95643,
+        3.66972,
+        43.04357
+      ]
+    }
+  ]
+}

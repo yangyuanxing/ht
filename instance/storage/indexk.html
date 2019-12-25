@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Preview Display</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="custom/images/favicon.ico?v=2" />
+        <style>
+            html, body {
+                padding: 0px;
+                margin: 0px;
+            }
+            
+        </style>
+
+        <!-- <script src='../custom/configs/htconfig.js'></script>
+        <script src='../custom/libs/echarts.js'></script> -->
+        <script src='./libs/ht.js'></script>
+        <!-- <script src='../libs/ht-edgetype.js'></script>
+        <script src='../libs/ht-obj.js'></script> -->
+        <script src='../libs/ht-ui.js'></script>
+        <!-- <script src='../libs/ht-vector.js'></script> -->
+        <script src="./libs/ht-flow.js"></script>
+        <script src="./libs/ht-animation.js"></script>
+        <!-- <script src="./libs/texture.js"></script> -->
+
+        <script>
+            function init() {
+                g3dDataModel = new ht.DataModel();
+                g3d = new ht.graph3d.Graph3dView(g3dDataModel);
+                
+                view = g3d.getView();
+                view.className = 'main';
+                document.body.appendChild(view);
+                window.addEventListener('resize', function () {
+                    g3d.invalidate();
+                }, false);
+                g3d.setEye([922.8641,
+                            595.25952,
+                            1000]);
+                g3d.enableToolTip = function (e) {
+                    let data = thisgetDataAT();
+                    if (data) {
+                        return '<pre>' + JSON.stringify( data.getStyleMap() ,null ,4 ) + '</pre>';
+                    }
+                    return null;
+                }
+                //jianmod
+                function createNode(shape, p3, s3, r3){
+                    var node = new ht.Node();
+                    node.setStyle('shape3d', shape);
+                    node.p3(p3);
+                    node.s3(s3);
+                    if(r3){
+                        node.r3(r3);
+                    }
+                    g3dDataModel.add(node);
+                    return node;
+                }
+                //chuangjianhuoche
+                var train = createNode('rect', [300, 200, 0],[600,100,100],[0,0,0]).s({
+                    'shape3d.top.color':'#000',
+                    'shape3d.bottom.color':'rgba(52,111,130,0.95)',
+                });
+                var brwheel = createNode('cylinder',[500,125,40],[50,10,50],[Math.PI/2,0,0]).s({
+                    'shape3d.top.image': 'wheels',
+                    'shape3d.bottom.image': 'wheels',
+                    'shape3d.from.color':'#000'
+                });
+                var blwheel = createNode('cylinder',[500,125,-30],[50,10,50],[Math.PI/2,0,0]).s({
+                    'shape3d.top.image': 'wheels',
+                    'shape3d.bottom.image': 'wheels',
+                    'shape3d.from.color':'#000'
+                });
+                var bbar = createNode('cylinder',[500,125,5],[10,70,10],[Math.PI/2,0,0]).s({
+                    'shape3d.color': '#000'
+                });
+                var brcenterwheel = createNode('cylinder',[280,125,40],[50,10,50],[Math.PI/2,0,0]).s({
+                    'shape3d.top.image': 'wheels',
+                    'shape3d.bottom.image': 'wheels',
+                    'shape3d.from.color':'#000'
+                });
+                var blcenterwheel = createNode('cylinder',[280,125,-30],[50,10,50],[Math.PI/2,0,0]).s({
+                    'shape3d.top.image': 'wheels',
+                    'shape3d.bottom.image': 'wheels',
+                    'shape3d.from.color':'#000'
+                });
+                var bcenterbar = createNode('cylinder',[280,125,5],[10,70,10],[Math.PI/2,0,0]).s({
+                    'shape3d.color': '#000'
+                });
+                var brfrontwheel = createNode('cylinder',[80,125,40],[50,10,50],[Math.PI/2,0,0]).s({
+                    'shape3d.top.image': 'wheels',
+                    'shape3d.bottom.image': 'wheels',
+                    'shape3d.from.color':'#000'
+                });
+                var blfrontwheel = createNode('cylinder',[80,125,-30],[50,10,50],[Math.PI/2,0,0]).s({
+                    'shape3d.top.image': 'wheels',
+                    'shape3d.bottom.image': 'wheels',
+                    'shape3d.from.color':'#000'
+                });
+                var bfrontbar = createNode('cylinder',[80,125,5],[10,70,10],[Math.PI/2,0,0]).s({
+                    'shape3d.color': '#000'
+                });
+                createNode('rect', [0, 100, -30],[1200,10,10],[-Math.PI,0,0]).s({
+                    'shape3d.color':'#000',
+                });
+                createNode('rect', [0, 100, 40],[1200,10,10],[-Math.PI,0,0]).s({
+                    'shape3d.color':'#000',
+                });
+                for(var i=0;i<25;i++){
+                    var x = -600 + i*50;
+                    createNode('rect', [x, 100, 5],[10,10,70],[-Math.PI,0,0]).s({
+                        'shape3d.color':'#767676',
+                    });
+                }
+                train.setAnimation({
+                    move:{
+                        from:300,
+                        to:-300,
+                        easing:'Linear',
+                        duration:5000,
+                        repeat:true,
+                        onUpdate:function (value) {
+                            this.setPosition(value, this.getPosition().y);
+                        }
+                    },
+                    start:['move']
+                })
+                var arr = [blwheel,brwheel,bbar,brcenterwheel,blcenterwheel,bcenterbar,brfrontwheel,blfrontwheel,bfrontbar]
+                arr.forEach(function(obj){
+                    if ( obj == blcenterwheel || obj == brcenterwheel || obj == bcenterbar ) {
+                        var a = 280;
+                        var b = -320;
+                    }
+                    if ( obj == blfrontwheel || obj == brfrontwheel || obj == bfrontbar ) {
+                        var a = 80;
+                        var b = -520;
+                    }
+                    obj.setAnimation({
+                        move:{
+                            from: a || 500,
+                            to: b || -100,
+                            easing:"Linear",
+                            duration:5000,
+                            repeat:true,
+                            onUpdate:function(value){
+                                this.setPosition(value, this.getPosition().y);
+                            }
+                        },
+                        rotate:{
+                            from:0,
+                            to:Math.PI*2,
+                            easing:"Linear",
+                            duration:1000,
+                            repeat:true,
+                            onUpdate:function(value){
+                                this.r3([this.getRotationX(),this.getRotationY(),value]);
+                            }
+                        },
+                        start:["move","rotate"]
+        
+                    });
+                });
+                setInterval(() => {
+                    fetch('/getColor',{
+                        method:'get'
+                    })
+                    .then( res => res.json() )
+                    .then( data => {
+                        train.s('shape3d.color', data.data);
+                        train.s('shape3d.color', data.data);
+                        train.s('shape3d.color', data.data);
+                        train.s('shape3d.color', data.data);
+                    } )
+                }, 100);
+                g3dDataModel.enableAnimation(10);
+                g3d.addToDOM();
+            }
+        </script>
+    </head>
+    <body onload='setTimeout(init, 300)'>
+    </body>
+</html>

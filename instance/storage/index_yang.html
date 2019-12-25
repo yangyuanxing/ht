@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Preview Display</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="custom/images/favicon.ico?v=2" />
+        <style>
+            html, body {
+                padding: 0px;
+                margin: 0px;
+            }
+        </style>
+
+        <!-- <script src='../custom/configs/htconfig.js'></script>
+        <script src='../custom/libs/echarts.js'></script> -->
+        <script src='./libs/ht.js'></script>
+        <!-- <script src='../libs/ht-edgetype.js'></script>
+        <script src='../libs/ht-obj.js'></script> -->
+        <script src='../libs/ht-ui.js'></script>
+        <!-- <script src='../libs/ht-vector.js'></script> -->
+        <script src="./libs/ht-flow.js"></script>
+        <!-- <script src="./libs/ht-animation.js"></script>
+        <script src="./libs/texture.js"></script> -->
+
+        <script>
+            function init() {
+                dataModel = new ht.DataModel();
+                graphView = new ht.graph.GraphView(dataModel);
+                graphView.addToDOM();
+                graphView.enableFlow();
+
+                ht.Default.xhrLoad('displays/数据治理/index.json', function(text) {
+                    var json = ht.Default.parse(text);
+                    if(json.title) document.title = json.title;
+                    dataModel.deserialize(json);
+                    graphView.fitContent(true);
+                    
+                    ht.Default.setImage('arrow_2',{
+                        width: 80,
+                        height: 50,
+                        comps: [
+                            {
+                            type: "shape",
+                            background: {
+                                func: "attr@arrow.color",
+                                value: "#60ACFC"
+                            },
+                            borderColor: "#40ACFF",
+                            gradient: "linear.southwest",
+                            gradientColor: "#60ACFC",
+                            points: [
+                            76.15298,
+                            -22.59561,
+                            76.15298,
+                            72.59561,
+                            139.6138,
+                            25,
+                            76.15298,
+                            -22.59561
+                            ]
+                            },
+                            {
+                            type: "rect",
+                            background: "#60ACFC",
+                            borderColor: "#979797",
+                            gradient: "linear.west",
+                            gradientColor: "#4FED11",
+                            rect: [
+                            0,
+                            -6.73041,
+                            76.15298,
+                            63.46082
+                            ]
+                            }
+                        ]
+                    })
+                    ht.Default.setImage('arrow_3',{
+                        width: 80,
+                        height: 50,
+                        comps: [
+                            {
+                            type: "shape",
+                            background: {
+                                func: "attr@arrow.color",
+                                value: "#60ACFC"
+                            },
+                            borderColor: "#40ACFF",
+                            gradient: "linear.southwest",
+                            gradientColor: "#60ACFC",
+                            points: [
+                            76.15298,
+                            -22.59561,
+                            76.15298,
+                            72.59561,
+                            139.6138,
+                            25,
+                            76.15298,
+                            -22.59561
+                            ]
+                            },
+                            {
+                            type: "rect",
+                            background: "#60ACFC",
+                            borderColor: "#979797",
+                            gradient: "linear.west",
+                            gradientColor: "#08D8F2",
+                            rect: [
+                            0,
+                            -6.73041,
+                            76.15298,
+                            63.46082
+                            ]
+                            }
+                        ]
+                    })
+                    ht.Default.setImage('arrow_4',{
+                        width: 80,
+                        height: 50,
+                        comps: [
+                            {
+                            type: "shape",
+                            background: {
+                                func: "attr@arrow.color",
+                                value: "#1b5fdf"
+                            },
+                            borderColor: "#40ACFF",
+                            gradient: "linear.west",
+                            gradientColor: "#4FED11",
+                            points: [
+                            -6.87311,
+                            -20.14107,
+                            -6.87311,
+                            70.14107,
+                            172.91122,
+                            25,
+                            -6.87311,
+                            -20.14107
+                            ]
+                            }
+                        ]
+                    })
+                    ht.Default.setImage('arrow_5',{
+                        width: 80,
+                        height: 50,
+                        comps: [
+                            {
+                            type: "shape",
+                            background: {
+                                func: "attr@arrow.color",
+                                value: "#1b5fdf"
+                            },
+                            borderColor: "#40ACFF",
+                            gradient: "linear.east",
+                            gradientColor: "#4FED11",
+                            points: [
+                            -6.87311,
+                            -20.14107,
+                            -6.87311,
+                            70.14107,
+                            172.91122,
+                            25,
+                            -6.87311,
+                            -20.14107
+                            ]
+                            }
+                        ]
+                    })
+                    //left_line箭头流动
+                    const left_line_1 = dataModel.getDataByTag('left_line_1');
+                    const left_line_2 = dataModel.getDataByTag('left_line_2');
+                    const left_line_3 = dataModel.getDataByTag('left_line_3');
+                    const left_line_4 = dataModel.getDataByTag('left_line_4');
+                    const right_line_1 = dataModel.getDataByTag('right_line_1');
+                    const right_line_2 = dataModel.getDataByTag('right_line_2');
+                    const right_line_3 = dataModel.getDataByTag('right_line_3');
+                    //left_line_1
+                    left_line_1.s('flow', true);
+                    left_line_1.s('flow.element.image', 'arrow_2');
+                    left_line_1.s('flow.element.count', 1);
+                    left_line_1.s('flow.count', 2);
+                    left_line_1.s('flow.step', 3);
+                    left_line_1.s('flow.element.max', 5);
+                    left_line_1.s('flow.element.autorotate', true);
+                    left_line_1.s('flow.element.shadow.visible', false);
+                    //left_line_2
+                    left_line_2.s('flow', true);
+                    left_line_2.s('flow.element.image', 'arrow_3');
+                    left_line_2.s('flow.element.count', 1);
+                    left_line_2.s('flow.count', 1);
+                    left_line_2.s('flow.step', 2.8);
+                    left_line_2.s('flow.element.max', 5);
+                    left_line_2.s('flow.element.autorotate', true);
+                    left_line_2.s('flow.element.shadow.visible', false);
+                    //left_line_3
+                    left_line_3.s('flow', true);
+                    left_line_3.s('flow.element.image', 'arrow_3');
+                    left_line_3.s('flow.element.count', 1);
+                    left_line_3.s('flow.count', 1);
+                    left_line_3.s('flow.step', 3.5);
+                    left_line_3.s('flow.element.max', 5);
+                    left_line_3.s('flow.element.autorotate', true);
+                    left_line_3.s('flow.element.shadow.visible', false);
+                    //left_line_4
+                    left_line_4.s('flow', true);
+                    left_line_4.s('flow.element.image', 'arrow_2');
+                    left_line_4.s('flow.element.count', 1);
+                    left_line_4.s('flow.count', 2);
+                    left_line_4.s('flow.step', 4);
+                    left_line_4.s('flow.element.max', 5);
+                    left_line_4.s('flow.element.autorotate', true);
+                    left_line_4.s('flow.element.shadow.visible', false);
+                    //right_line_1
+                    right_line_1.s('flow', true);
+                    right_line_1.s('flow.element.image', 'arrow_5');
+                    right_line_1.s('flow.reverse', true);
+                    right_line_1.s('flow.element.count', 1);
+                    right_line_1.s('flow.count', 2);
+                    right_line_1.s('flow.step', 3);
+                    right_line_1.s('flow.element.max', 5);
+                    right_line_1.s('flow.element.autorotate', true);
+                    right_line_1.s('flow.element.shadow.visible', false);
+                    //right_line_2
+                    right_line_2.s('flow', true);
+                    right_line_2.s('flow.element.image', 'arrow_4');
+                    right_line_2.s('flow.element.count', 1);
+                    right_line_2.s('flow.count', 2);
+                    right_line_2.s('flow.step', 2.5);
+                    right_line_2.s('flow.element.max', 5);
+                    right_line_2.s('flow.element.autorotate', true);
+                    right_line_2.s('flow.element.shadow.visible', false);
+                    //right_line_3
+                    right_line_3.s('flow', true);
+                    right_line_3.s('flow.element.image', 'arrow_4');
+                    right_line_3.s('flow.element.count', 1);
+                    right_line_3.s('flow.count', 2);
+                    right_line_3.s('flow.step', 3);
+                    right_line_3.s('flow.element.max', 5);
+                    right_line_3.s('flow.element.autorotate', true);
+                    right_line_3.s('flow.element.shadow.visible', false);
+                    //动态数据渲染
+                    const temp = dataModel.getDataByTag('temperature');
+                    const clockNow = dataModel.getDataByTag('time');
+                    const dateData = dataModel.getDataByTag('dateData');
+                    const weekNow = dataModel.getDataByTag('weekNow');
+                    const controlled = dataModel.getDataByTag('controlled');
+                    const general = dataModel.getDataByTag('general');
+                    const urgent = dataModel.getDataByTag('urgent');
+                    const controlledData = dataModel.getDataByTag('controlledData');
+                    const generalData = dataModel.getDataByTag('generalData');
+                    const urgentData = dataModel.getDataByTag('urgentData');
+                    const workOrder = dataModel.getDataByTag('workOrder');
+                    const regulation = dataModel.getDataByTag('regulation');
+                    const gather = dataModel.getDataByTag('gather');
+                    const process = dataModel.getDataByTag('process');
+                    const audit = dataModel.getDataByTag('audit');
+                    const charTable1 = dataModel.getDataByTag('charTable1');
+                    const charTable2 = dataModel.getDataByTag('charTable2');
+                    const charTable3 = dataModel.getDataByTag('charTable3');
+                    const ball_light_1 = dataModel.getDataByTag('ball_light_1');
+                    const ball_light_2 = dataModel.getDataByTag('ball_light_2');
+                    const ball_light_3 = dataModel.getDataByTag('ball_light_3');
+                    const little_ball_light_1 = dataModel.getDataByTag('little_ball_light_1')
+
+                    setInterval(() => {
+                        fetch('http://localhost:5050/getTemp',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            temp.s('text', data.data)
+                        } )
+                        fetch('http://localhost:5050/getPercent',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            controlled.a('perc', data.data/100)
+                            controlledData.s('text', Math.floor(data.data))
+                            let geneData = Math.floor( Math.random()*(100 - Math.floor(data.data)) )
+                            general.a('perce', geneData/100)
+                            generalData.s('text', geneData)
+                            let urgeData = 100 - geneData - Math.floor(data.data)
+                            urgent.a('percen', urgeData/100)
+                            urgentData.s('text', urgeData)
+                        } )
+                    }, 3000);
+
+                    setInterval(() => {
+
+                        let date = new Date();
+                        let hour = date.getHours();
+                        let minu = date.getMinutes();
+                        let sec = date.getSeconds();
+                        let year = date.getFullYear();
+                        let month = date.getMonth() + 1;
+                        let day = date.getDate();
+                        let week = date.getDay();
+                        
+                        switch (week) 
+                        { 
+                            case 1:
+                                week = '星期一'
+                                break;
+                            case 2:
+                                week = '星期二'
+                                break;
+                            case 3:
+                                week = '星期三'
+                                break;
+                            case 4:
+                                week = '星期四'
+                                break;
+                            case 5:
+                                week = '星期五'
+                                break;
+                            case 6:
+                                week = '星期六'
+                                break;
+                            case 7:
+                                week = '星期日'
+                                break;
+                        }
+
+                        let clock = `${ hour >= 10 ? hour : '0' + hour }:${ minu >= 10 ? minu : '0' + minu }:${ sec >= 10 ? sec : '0' + sec }`
+                        let dates = `${ year }.${ month >= 10 ? month : month + '0' }.${ day >= 10 ? day : day + '0' }`
+                        clockNow.s('text', clock)
+                        dateData.s('text', dates )
+                        weekNow.s('text', week)
+                    }, 1000);
+
+                    setInterval(() => {
+                        fetch('http://localhost:5050/getPercent',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            workOrder.s('text', Math.floor(data.data))
+                        } )
+                        fetch('http://localhost:5050/getPercent',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            regulation.s('text', Math.floor(data.data))
+                        } )
+                        fetch('http://localhost:5050/getPercent',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            gather.s('text', Math.floor(data.data))
+                        } )
+                        fetch('http://localhost:5050/getPercent',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            process.s('text', Math.floor(data.data))
+                        } )
+                        fetch('http://localhost:5050/getPercent',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            audit.s('text', Math.floor(data.data))
+                        } )
+                    }, 4000);
+                    setInterval(() => {
+                        charTable1.a('length1',Math.random())
+                        charTable1.a('length2',Math.random())
+                        charTable1.a('length3',Math.random())
+                        charTable1.a('length4',Math.random())
+                        charTable1.a('length5',Math.random())
+                        charTable1.a('length6',Math.random())
+                        charTable1.a('length7',Math.random())
+                        charTable1.a('length8',Math.random())
+                        charTable1.a('length9',Math.random())
+                        charTable1.a('length10',Math.random())
+                        charTable1.a('length11',Math.random())
+                        charTable1.a('length12',Math.random())
+                        charTable1.a('length13',Math.random())
+                        charTable1.a('length14',Math.random())
+                        charTable1.a('length15',Math.random())
+                        charTable1.a('length16',Math.random())
+                        charTable2.a('length1',Math.random())
+                        charTable2.a('length2',Math.random())
+                        charTable2.a('length3',Math.random())
+                        charTable2.a('length4',Math.random())
+                        charTable2.a('length5',Math.random())
+                        charTable2.a('length6',Math.random())
+                        charTable2.a('length7',Math.random())
+                        charTable2.a('length8',Math.random())
+                        charTable2.a('length9',Math.random())
+                        charTable2.a('length10',Math.random())
+                        charTable2.a('length11',Math.random())
+                        charTable2.a('length12',Math.random())
+                        charTable2.a('length13',Math.random())
+                        charTable2.a('length14',Math.random())
+                        charTable2.a('length15',Math.random())
+                        charTable2.a('length16',Math.random())
+                        charTable3.a('length1',Math.random())
+                        charTable3.a('length2',Math.random())
+                        charTable3.a('length3',Math.random())
+                        charTable3.a('length4',Math.random())
+                        charTable3.a('length5',Math.random())
+                        charTable3.a('length6',Math.random())
+                        charTable3.a('length7',Math.random())
+                        charTable3.a('length8',Math.random())
+                        charTable3.a('length9',Math.random())
+                        charTable3.a('length10',Math.random())
+                        charTable3.a('length11',Math.random())
+                        charTable3.a('length12',Math.random())
+                        charTable3.a('length13',Math.random())
+                        charTable3.a('length14',Math.random())
+                        charTable3.a('length15',Math.random())
+                        charTable3.a('length16',Math.random())
+                    }, 100);
+
+                    setInterval(() => {
+                        ball_light_1.setRotation( ball_light_1.getRotation() + Math.PI/30 );
+                        ball_light_2.setRotation( ball_light_2.getRotation() + Math.PI/30 );
+                        ball_light_3.setRotation( ball_light_3.getRotation() - Math.PI/30 );
+                    }, 100);
+                    // little_ball_light_1.s('flow', true);
+                    // little_ball_light_1.s('flow.element.image', 'arrow_4');
+                    // little_ball_light_1.s('flow.element.count', 4);
+                    // little_ball_light_1.s('flow.count', 8);
+                    // little_ball_light_1.s('flow.step', 3);
+                    // little_ball_light_1.s('flow.element.max', 5);
+                    // little_ball_light_1.s('flow.element.autorotate', true);
+                    // little_ball_light_1.s('flow.element.shadow.visible', true);
+                })
+            }
+        </script>
+    </head>
+    <body onload='setTimeout(init, 300)'>
+    </body>
+</html>

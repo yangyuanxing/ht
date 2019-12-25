@@ -1,0 +1,27 @@
+{
+  "modified": "Mon Dec 23 2019 15:51:05 GMT+0800 (中国标准时间)",
+  "width": 80,
+  "height": 50,
+  "comps": [
+    {
+      "type": "shape",
+      "background": {
+        "func": "attr@arrow.color",
+        "value": "#1b5fdf"
+      },
+      "borderColor": "#40ACFF",
+      "gradient": "linear.west",
+      "gradientColor": "#4FED11",
+      "points": [
+        -6.87311,
+        -20.14107,
+        -6.87311,
+        70.14107,
+        172.91122,
+        25,
+        -6.87311,
+        -20.14107
+      ]
+    }
+  ]
+}

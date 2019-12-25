@@ -1,0 +1,20 @@
+{
+  "modelType": "obj",
+  "obj": "assets\\objs\\traffic\\Anti-aircraft.obj",
+  "mtl": "",
+  "image": "",
+  "prefix": "",
+  "center": true,
+  "ignoreImage": false,
+  "ignoreColor": true,
+  "s3": [
+    1,
+    1,
+    1
+  ],
+  "r3": [
+    0,
+    0,
+    0
+  ]
+}

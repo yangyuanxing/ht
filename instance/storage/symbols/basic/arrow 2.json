@@ -1,0 +1,40 @@
+{
+  "modified": "Mon Dec 23 2019 09:47:28 GMT+0800 (中国标准时间)",
+  "width": 80,
+  "height": 50,
+  "comps": [
+    {
+      "type": "shape",
+      "background": {
+        "func": "attr@arrow.color",
+        "value": "#60ACFC"
+      },
+      "borderColor": "#40ACFF",
+      "gradient": "linear.southwest",
+      "gradientColor": "#60ACFC",
+      "points": [
+        76.15298,
+        -22.59561,
+        76.15298,
+        72.59561,
+        139.6138,
+        25,
+        76.15298,
+        -22.59561
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#60ACFC",
+      "borderColor": "#979797",
+      "gradient": "linear.west",
+      "gradientColor": "#38D083",
+      "rect": [
+        0,
+        -6.73041,
+        76.15298,
+        63.46082
+      ]
+    }
+  ]
+}

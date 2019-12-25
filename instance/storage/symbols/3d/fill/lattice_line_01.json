@@ -1,0 +1,42 @@
+{
+  "modified": "Tue Sep 10 2019 21:31:14 GMT+0800 (中国标准时间)",
+  "width": 64,
+  "height": 64,
+  "attachStyle": "close",
+  "comps": [
+    {
+      "type": "oval",
+      "background": "rgba(255,255,255,0.37)",
+      "borderColor": "#979797",
+      "rect": [
+        30,
+        30,
+        4,
+        4
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "rgba(255,255,255,0.3)",
+      "borderColor": "#979797",
+      "rect": [
+        0,
+        0,
+        1,
+        64
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "rgba(255,255,255,0.3)",
+      "borderColor": "#979797",
+      "rotation": 1.5708,
+      "rect": [
+        31.5,
+        -31.5,
+        1,
+        64
+      ]
+    }
+  ]
+}

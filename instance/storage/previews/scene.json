@@ -1,0 +1,88 @@
+{
+  "v": "7.0.3",
+  "p": {
+    "autoAdjustIndex": true,
+    "hierarchicalRendering": true,
+    "postProcessingData": {
+      "bloom": {
+        "enable": false,
+        "strength": 0.12,
+        "threshold": 0.79,
+        "radius": 0.4,
+        "overrideAlpha": false
+      },
+      "dof": {
+        "enable": false,
+        "aperture": 0.025,
+        "maxblur": 1,
+        "image": null
+      }
+    }
+  },
+  "d": [
+    {
+      "c": "ht.Node",
+      "i": 2827,
+      "p": {
+        "tag": "car",
+        "position": {
+          "x": -1146.09937,
+          "y": -415.40218
+        },
+        "anchorElevation": 0,
+        "width": 4000,
+        "height": 2018.94783,
+        "tall": 2000
+      },
+      "s": {
+        "all.color": "rgb(240,225,19)",
+        "envmap": 0
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 2962,
+      "p": {
+        "tag": "floor",
+        "position": {
+          "x": -50,
+          "y": -600
+        },
+        "anchorElevation": 0,
+        "width": 27700,
+        "height": 24400,
+        "tall": 50
+      },
+      "s": {
+        "all.color": "#60ACFC",
+        "2d.selectable": false,
+        "3d.selectable": false,
+        "envmap": 0
+      }
+    }
+  ],
+  "scene": {
+    "eye": [
+      -4436.42686,
+      24989.50491,
+      28021.83402
+    ],
+    "center": [
+      0,
+      0,
+      0
+    ],
+    "near": 10,
+    "far": 10000000,
+    "gridVisible": true,
+    "gridSize": 50,
+    "gridGap": 50,
+    "gridColor": [
+      0.4,
+      0.75,
+      0.85,
+      1
+    ],
+    "editHelperDisabled": false
+  }
+}

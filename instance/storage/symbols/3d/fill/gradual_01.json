@@ -1,0 +1,22 @@
+{
+  "modified": "Wed Jan 09 2019 10:00:44 GMT+0800 (中国标准时间)",
+  "width": 1,
+  "height": 64,
+  "attachStyle": "close",
+  "comps": [
+    {
+      "type": "rect",
+      "background": "rgba(49,210,235,0.00)",
+      "borderColor": "#979797",
+      "gradient": "linear.northwest",
+      "gradientColor": "rgba(49,210,235,0.67)",
+      "rotation": 3.14159,
+      "rect": [
+        0,
+        0,
+        1,
+        64
+      ]
+    }
+  ]
+}

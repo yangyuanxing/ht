@@ -1,0 +1,20 @@
+{
+  "modelType": "obj",
+  "obj": "assets\\objs\\traffic\\bujiadi.obj",
+  "mtl": "assets\\objs\\traffic\\bujiadi.mtl",
+  "image": "",
+  "prefix": "",
+  "center": true,
+  "ignoreImage": false,
+  "ignoreColor": false,
+  "s3": [
+    1,
+    1,
+    1
+  ],
+  "r3": [
+    0,
+    0,
+    0
+  ]
+}

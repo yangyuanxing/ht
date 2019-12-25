@@ -1,0 +1,100 @@
+{
+  "width": 128,
+  "height": 128,
+  "comps": [
+    {
+      "type": "rect",
+      "background": "rgb(66,183,201)",
+      "borderColor": "#979797",
+      "gradient": "spread.north",
+      "gradientColor": "rgb(139,233,247)",
+      "rect": [
+        0,
+        0,
+        128,
+        128
+      ]
+    },
+    {
+      "type": "shape",
+      "background": "rgba(255,255,255,0.86)",
+      "borderColor": "#979797",
+      "gradient": "linear.west",
+      "gradientColor": "rgba(255,255,255,0.00)",
+      "shadow": true,
+      "shadowColor": "rgba(255,255,255,0.82)",
+      "shadowOffsetX": 0,
+      "shadowOffsetY": 0,
+      "points": [
+        26.76592,
+        13.59364,
+        77.55041,
+        13.59364,
+        77.55041,
+        6.25746,
+        101.23408,
+        18.06953,
+        77.55041,
+        30.11322,
+        77.55041,
+        22.58591,
+        26.76592,
+        22.58591
+      ]
+    },
+    {
+      "type": "shape",
+      "background": "rgba(255,255,255,0.42)",
+      "borderColor": "#979797",
+      "gradient": "linear.west",
+      "gradientColor": "rgba(255,255,255,0.00)",
+      "shadow": true,
+      "shadowColor": "rgba(255,255,255,0.82)",
+      "shadowOffsetX": 0,
+      "shadowOffsetY": 0,
+      "points": [
+        26.76592,
+        59.4083,
+        77.55041,
+        59.4083,
+        77.55041,
+        52.07212,
+        101.23408,
+        63.8842,
+        77.55041,
+        75.92788,
+        77.55041,
+        68.40058,
+        26.76592,
+        68.40058
+      ]
+    },
+    {
+      "type": "shape",
+      "background": "rgba(255,255,255,0.86)",
+      "borderColor": "#979797",
+      "gradient": "linear.west",
+      "gradientColor": "rgba(255,255,255,0.00)",
+      "shadow": true,
+      "shadowColor": "rgba(255,255,255,0.82)",
+      "shadowOffsetX": 0,
+      "shadowOffsetY": 0,
+      "points": [
+        26.76592,
+        102.39432,
+        77.55041,
+        102.39432,
+        77.55041,
+        95.05814,
+        101.23408,
+        106.87022,
+        77.55041,
+        118.9139,
+        77.55041,
+        111.3866,
+        26.76592,
+        111.3866
+      ]
+    }
+  ]
+}

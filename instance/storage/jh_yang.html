@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Preview Display</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="custom/images/favicon.ico?v=2" />
+        <style>
+            html, body {
+                padding: 0px;
+                margin: 0px;
+            }
+        </style>
+
+        <!-- <script src='../custom/configs/htconfig.js'></script>
+        <script src='../custom/libs/echarts.js'></script> -->
+        <script src='./libs/ht.js'></script>
+        <!-- <script src='../libs/ht-edgetype.js'></script>
+        <script src='../libs/ht-obj.js'></script> -->
+        <script src='./libs/ht-ui.js'></script>
+        <!-- <script src='../libs/ht-vector.js'></script> -->
+        <script src="./libs/ht-flow.js"></script>
+        <script src="./libs/ht-animation.js"></script>
+        <!-- <script src="./libs/texture.js"></script> -->
+
+        <script>
+            function init() {
+                dataModel = new ht.DataModel();
+                graphView = new ht.graph.GraphView(dataModel);
+                graphView.addToDOM();
+                graphView.enableFlow();
+                dataModel.enableAnimation();
+
+                ht.Default.xhrLoad('displays/数据治理/js.json', function(text) {
+                    var json = ht.Default.parse(text);
+                    if(json.title) document.title = json.title;
+                    dataModel.deserialize(json);
+                    graphView.fitContent(true);
+                    
+                    //动态数据渲染
+                    const temp = dataModel.getDataByTag('temperature');
+                    const clockNow = dataModel.getDataByTag('time');
+                    const dateData = dataModel.getDataByTag('dateData');
+                    const weekNow = dataModel.getDataByTag('weekNow');
+                    const normal = dataModel.getDataByTag('normal');
+                    const normalData = dataModel.getDataByTag('normalData');
+                    const normalDatas = dataModel.getDataByTag('normalDatas');
+                    const alarm = dataModel.getDataByTag('alarm');
+                    const alarmData = dataModel.getDataByTag('alarmData');
+                    const misstake = dataModel.getDataByTag('misstake');
+                    const misstakeData = dataModel.getDataByTag('misstakeData');
+                    const auditRecord = dataModel.getDataByTag('auditRecord');
+                    const auditObj = dataModel.getDataByTag('auditObj');
+                    
+                    const yizhixing_image = dataModel.getDataByTag('yizhixing_image')
+                    const yizhixing_word = dataModel.getDataByTag('yizhixing_word')
+                    const kongzhi_image = dataModel.getDataByTag('kongzhi_image')
+                    const kongzhi_word = dataModel.getDataByTag('kongzhi_word')
+                    const cankao_image = dataModel.getDataByTag('cankao_image')
+                    const cankao_word = dataModel.getDataByTag('cankao_word')
+                    const bodong_image = dataModel.getDataByTag('bodong_image')
+                    const bodong_word = dataModel.getDataByTag('bodong_word')
+                    const luoji_image = dataModel.getDataByTag('luoji_image')
+                    const luoji_word = dataModel.getDataByTag('luoji_word')
+                    const kongzhi2_image = dataModel.getDataByTag('kongzhi2_image')
+                    const kongzhi2_word = dataModel.getDataByTag('kongzhi2_word')
+                    const luoji2_image = dataModel.getDataByTag('luoji2_image')
+                    const luoji2_word = dataModel.getDataByTag('luoji2_word')
+                    const jilu_image = dataModel.getDataByTag('jilu_image')
+                    const jilu_word = dataModel.getDataByTag('jilu_word')
+
+                    const progress = dataModel.getDataByTag('progress');
+
+                    const numberLine_1 = dataModel.getDataByTag('numberLine_1');
+                    const numberLine_2 = dataModel.getDataByTag('numberLine_2');
+                    const numberLine_3 = dataModel.getDataByTag('numberLine_3');
+                    const numberLine_4 = dataModel.getDataByTag('numberLine_4');
+                    const numberLine_5= dataModel.getDataByTag('numberLine_5');
+                    const numberLine_6= dataModel.getDataByTag('numberLine_6');
+
+                    //直线进度条
+                    let flag = 1;
+                    setInterval(() => {
+                      if ( flag == 1 ) {
+                        progress.a('visible1', false);
+                        flag = 2;
+                      } else if ( flag == 2 ) {
+                        progress.a('visible2', false);
+                        flag = 3;
+                      } else if ( flag == 3 ) {
+                        progress.a('visible3', false);
+                        flag = 4;
+                      }  else if ( flag == 4 ) {
+                        progress.a('visible4', false);
+                        flag = 5;
+                      }  else if ( flag == 5 ) {
+                        progress.a('visible5', false);
+                        flag = 0;
+                      } else {
+                        progress.a('visible1', true);
+                        progress.a('visible2', true);
+                        progress.a('visible3', true);
+                        progress.a('visible4', true);
+                        progress.a('visible5', true);
+                        flag = 1;
+                      }
+                    }, 1000);
+                    //环形进度条
+                    setInterval(() => {
+                        fetch('http://localhost:5050/getTemp',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            temp.s('text', data.data)
+                        } )
+                        fetch('http://localhost:5050/getPercent',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            normal.a('perc', data.data/100)
+                            normalData.s('text', Math.floor(data.data))
+                            let alarData = Math.floor( Math.random()*(100 - Math.floor(data.data)) )
+                            alarm.a('perce', alarData/100)
+                            alarmData.s('text', alarData)
+                            let misstakData = 100 - alarData - Math.floor(data.data)
+                            misstake.a('percen', misstakData/100)
+                            misstakeData.s('text', misstakData)
+                        } )
+                    }, 3000);
+                    //日期 时间
+                    setInterval(() => {
+
+                        let date = new Date();
+                        let hour = date.getHours();
+                        let minu = date.getMinutes();
+                        let sec = date.getSeconds();
+                        let year = date.getFullYear();
+                        let month = date.getMonth() + 1;
+                        let day = date.getDate();
+                        let week = date.getDay();
+                        
+                        switch (week) 
+                        { 
+                            case 1:
+                                week = '星期一'
+                                break;
+                            case 2:
+                                week = '星期二'
+                                break;
+                            case 3:
+                                week = '星期三'
+                                break;
+                            case 4:
+                                week = '星期四'
+                                break;
+                            case 5:
+                                week = '星期五'
+                                break;
+                            case 6:
+                                week = '星期六'
+                                break;
+                            case 7:
+                                week = '星期日'
+                                break;
+                        }
+
+                        let clock = `${ hour >= 10 ? hour : '0' + hour }:${ minu >= 10 ? minu : '0' + minu }:${ sec >= 10 ? sec : '0' + sec }`
+                        let dates = `${ year }.${ month >= 10 ? month : month + '0' }.${ day >= 10 ? day : day + '0' }`
+                        clockNow.s('text', clock)
+                        dateData.s('text', dates )
+                        weekNow.s('text', week)
+                    }, 1000);
+                    //稽核对象和记录
+                    setInterval(() => {
+                        fetch('http://localhost:5050/getPercent',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                          auditRecord.s('text', Math.floor(data.data))
+                        } )
+                        fetch('http://localhost:5050/getPercent',{
+                            method: 'get'
+                        })
+                        .then( res => res.json() )
+                        .then( data => {
+                            auditObj.s('text', Math.floor(data.data))
+                        } )
+                    }, 4000);
+                    //上下跳动动画
+                    yizhixing_image.setAnimation({
+                      up: {
+                          from: -442.25264, 
+                          to: -442.25264 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 500,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -442.25264 - 50, 
+                          to: -442.25264,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    yizhixing_word.setAnimation({
+                      up: {
+                          from: -439.32203, 
+                          to: -439.32203 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 500,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -439.32203 - 50, 
+                          to: -439.32203,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    kongzhi_image.setAnimation({
+                      up: {
+                          from: -324.44618, 
+                          to: -324.44618 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 550,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -324.44618 - 50, 
+                          to: -324.44618,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    kongzhi_word.setAnimation({
+                      up: {
+                          from: -324.44618, 
+                          to: -324.44618 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 550,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -324.44618 - 50, 
+                          to: -324.44618,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    cankao_image.setAnimation({
+                      up: {
+                          from: -328.90312, 
+                          to: -328.90312 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 600,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -328.90312 - 50, 
+                          to: -328.90312,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    cankao_word.setAnimation({
+                      up: {
+                          from: -327.34316, 
+                          to: -327.34316 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 600,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -327.34316 - 50, 
+                          to: -327.34316,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    bodong_image.setAnimation({
+                      up: {
+                          from: -485.25264, 
+                          to: -485.25264 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 650,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -485.25264 - 50, 
+                          to: -485.25264,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    bodong_word.setAnimation({
+                      up: {
+                          from: -483.25264, 
+                          to: -483.25264 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 650,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -483.25264 - 50, 
+                          to: -483.25264,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    luoji_image.setAnimation({
+                      up: {
+                          from: -609.82203, 
+                          to: -609.82203 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 700,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -609.82203 - 50, 
+                          to: -609.82203,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    luoji_word.setAnimation({
+                      up: {
+                          from: -608.14374, 
+                          to: -608.14374 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 700,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -608.14374 - 50, 
+                          to: -608.14374,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    kongzhi2_image.setAnimation({
+                      up: {
+                          from: -699.81598, 
+                          to: -699.81598 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 750,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -699.81598 - 50, 
+                          to: -699.81598,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    kongzhi2_word.setAnimation({
+                      up: {
+                          from: -698.81598, 
+                          to: -698.81598 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 750,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -698.81598 - 50, 
+                          to: -698.81598,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    luoji2_image.setAnimation({
+                      up: {
+                          from: -700.31598, 
+                          to: -700.31598 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 800,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -700.31598 - 50, 
+                          to: -700.31598,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    luoji2_word.setAnimation({
+                      up: {
+                          from: -698.22986, 
+                          to: -698.22986 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 800,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -698.22986 - 50, 
+                          to: -698.22986,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    jilu_image.setAnimation({
+                      up: {
+                          from: -584.82203, 
+                          to: -584.82203 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 850,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -584.82203 - 50, 
+                          to: -584.82203,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    jilu_word.setAnimation({
+                      up: {
+                          from: -581.8698, 
+                          to: -581.8698 - 50,
+                          frames: 25,
+                          easing: "Quad.easeOut",
+                          next: "down",
+                          delay: 850,
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      down: {
+                          from: -581.8698 - 50, 
+                          to: -581.8698,
+                          easing: "Quad.easeOut",
+                          frames: 80,
+                          next: "up",
+                          onUpdate: function(value) {
+                              this.setPosition(this.getPosition().x, value);
+                          }
+                      },
+                      start: ["up"]
+                    });
+                    
+                    ht.Default.setImage("num", {
+                        "width": 50,
+                        "height": 26,
+                        "comps": [
+                            {
+                                "type": 'text',
+                                "text": "1010",
+                                "rect": [-19.03755,
+                                        -6.3841,
+                                        118.0751,
+                                        35.49683],
+                                "color": '#3ED6E3',
+                                "font": 'bold 22px Arial,sans-serif',
+                                "align": 'center',
+                                "rotation": 3.14159,
+                                "shadow": true,
+                                "shadowColor": '#A6A0fd'
+                            }
+                        ]
+                    });
+                    const numLine = (x, step) => {
+                        x.s('flow', true);
+                        x.s('flow.element.image', 'num');
+                        x.s('flow.element.count', 12);
+                        x.s('flow.count', 2);
+                        x.s('flow.step', step);
+                        x.s("flow.element.max", 30);
+                        x.s("flow.element.min", 30);
+                        x.s("flow.element.space", 30);
+                        x.s('flow.element.autorotate', true);
+                        x.s('flow.element.shadow.visible', false);
+                    }
+                    numLine(numberLine_1, 9)
+                    numLine(numberLine_2, 8)
+                    numLine(numberLine_3, 7)
+                    numLine(numberLine_4, 6)
+                    numLine(numberLine_5, 7)
+                    numLine(numberLine_6, 8)
+                  })
+            }
+        </script>
+    </head>
+    <body onload='setTimeout(init, 300)'>
+    </body>
+</html>

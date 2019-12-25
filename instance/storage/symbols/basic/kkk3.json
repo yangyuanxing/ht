@@ -1,0 +1,58 @@
+{
+  "modified": "Mon Dec 23 2019 16:53:49 GMT+0800 (中国标准时间)",
+  "background": "rgb(0,0,0)",
+  "dataBindings": [
+    {
+      "attr": "percen",
+      "valueType": "Percentage",
+      "defaultValue": 0.5
+    }
+  ],
+  "width": 100,
+  "height": 100,
+  "comps": [
+    {
+      "type": "oval",
+      "borderWidth": 1,
+      "borderColor": "#DA640D",
+      "rect": [
+        0,
+        0,
+        100,
+        100
+      ]
+    },
+    {
+      "type": "arc",
+      "borderWidth": 8,
+      "borderColor": "#DA640D",
+      "arcFrom": 0,
+      "arcTo": {
+        "func": "__ht__function(data, view) {\nlet per = data.a('percen');\r\nreturn Math.PI*2*per\n}",
+        "value": 4.7124
+      },
+      "arcClose": false,
+      "rotation": 4.71239,
+      "rect": [
+        3,
+        3,
+        94,
+        94
+      ]
+    },
+    {
+      "type": "text",
+      "text": "%",
+      "align": "center",
+      "color": "rgb(255,255,255)",
+      "font": "16px Microsoft YaHei",
+      "anchorX": 3,
+      "rect": [
+        41.85644,
+        27,
+        50,
+        50
+      ]
+    }
+  ]
+}

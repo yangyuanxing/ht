@@ -1,0 +1,105 @@
+{
+  "v": "7.0.3",
+  "p": {
+    "autoAdjustIndex": true,
+    "hierarchicalRendering": true,
+    "postProcessingData": {
+      "bloom": {
+        "enable": false,
+        "strength": 0.12,
+        "threshold": 0.79,
+        "radius": 0.4,
+        "overrideAlpha": false
+      },
+      "dof": {
+        "enable": false,
+        "aperture": 0.025,
+        "maxblur": 1,
+        "image": null
+      }
+    }
+  },
+  "d": [
+    {
+      "c": "ht.Node",
+      "i": 2223,
+      "p": {
+        "position": {
+          "x": -618.30544,
+          "y": -538.60426
+        },
+        "anchorElevation": 0,
+        "scaleTall": 1.53479,
+        "width": 6093.73248,
+        "height": 6055.16455,
+        "tall": 50
+      },
+      "s": {
+        "all.color": "#DDDDDD",
+        "2d.selectable": false,
+        "3d.selectable": false
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 2224,
+      "p": {
+        "position": {
+          "x": -392.63385,
+          "y": 2232.82387
+        },
+        "anchorElevation": 0,
+        "width": 81
+      },
+      "s": {
+        "shape3d": "models/室内/单人沙发.json",
+        "wf.visible": "selected",
+        "shape3d.opacity": 1
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 2248,
+      "p": {
+        "tag": "ball",
+        "position": {
+          "x": -482.80365,
+          "y": 440.39662
+        },
+        "anchorElevation": 0,
+        "width": 1000,
+        "height": 1000,
+        "tall": 1000
+      },
+      "s": {
+        "shape3d": "sphere",
+        "shape3d.color": "#DDDDDD",
+        "shape3d.blend": null
+      }
+    }
+  ],
+  "scene": {
+    "eye": [
+      4500.57757,
+      5752.368,
+      -822.82123
+    ],
+    "center": [
+      0,
+      0,
+      0
+    ],
+    "near": 10,
+    "far": 10000000,
+    "gridVisible": true,
+    "gridSize": 50,
+    "gridGap": 50,
+    "gridColor": [
+      0.4,
+      0.75,
+      0.85,
+      1
+    ],
+    "editHelperDisabled": false
+  }
+}

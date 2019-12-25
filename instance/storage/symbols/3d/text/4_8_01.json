@@ -1,0 +1,53 @@
+{
+  "modified": "Wed Jul 31 2019 11:37:23 GMT+0800 (中国标准时间)",
+  "dataBindings": [
+    {
+      "attr": "name",
+      "valueType": "String"
+    }
+  ],
+  "width": 434,
+  "height": 100,
+  "attachStyle": "close",
+  "comps": [
+    {
+      "type": "roundRect",
+      "background": "rgba(36,36,36,0.50)",
+      "borderColor": "#979797",
+      "cornerRadius": 22,
+      "rect": [
+        0,
+        0,
+        433.22942,
+        99.99999
+      ]
+    },
+    {
+      "type": "text",
+      "text": {
+        "func": "attr@name",
+        "value": "核心通信机房2-2"
+      },
+      "color": "#fefd66",
+      "font": "bold 48px sans-serif, Arial",
+      "rect": [
+        31.49679,
+        9.79471,
+        285.73105,
+        71.66075
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "rgb(240,225,19)",
+      "borderColor": "#979797",
+      "pixelPerfect": true,
+      "rect": [
+        3.99285,
+        19.50124,
+        7.12164,
+        59.02376
+      ]
+    }
+  ]
+}

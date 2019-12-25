@@ -1,0 +1,130 @@
+{
+  "modified": "Wed Jul 10 2019 10:04:30 GMT+0800 (中国标准时间)",
+  "width": 128,
+  "height": 16,
+  "attachStyle": "close",
+  "comps": [
+    {
+      "type": "roundRect",
+      "background": "#FEB64D",
+      "borderColor": "#979797",
+      "gradient": "linear.northeast",
+      "gradientColor": "rgba(255,184,77,0.00)",
+      "cornerRadius": 1,
+      "shadow": true,
+      "shadowColor": "#FEB64D",
+      "shadowBlur": 2,
+      "shadowOffsetX": 0,
+      "shadowOffsetY": 0,
+      "rotation": -3.14159,
+      "rect": [
+        72.13246,
+        3.10981,
+        53.81684,
+        2
+      ]
+    },
+    {
+      "type": "roundRect",
+      "background": "#FEB64D",
+      "borderColor": "#979797",
+      "gradient": "linear.northeast",
+      "gradientColor": "rgba(255,184,77,0.00)",
+      "cornerRadius": 1,
+      "shadow": true,
+      "shadowColor": "#FEB64D",
+      "shadowBlur": 2,
+      "shadowOffsetX": 0,
+      "shadowOffsetY": 0,
+      "rotation": -3.14159,
+      "rect": [
+        0,
+        10.59713,
+        81.92861,
+        2
+      ]
+    },
+    {
+      "type": "shape",
+      "background": "#FEB64D",
+      "gradient": "linear.west",
+      "gradientColor": "#FEB64D",
+      "visible": false,
+      "opacity": 0.49,
+      "shadow": true,
+      "shadowColor": "#FEB64D",
+      "shadowBlur": 24,
+      "shadowOffsetX": -1,
+      "shadowOffsetY": 0,
+      "points": [
+        422.32871,
+        3.68035,
+        422.32871,
+        3.68035,
+        477.21903,
+        -2.32891,
+        483.45148,
+        -1.33309,
+        489.68394,
+        -0.33727,
+        489.68394,
+        6.41027,
+        483.45148,
+        7.66363,
+        477.21903,
+        8.91699,
+        422.32871,
+        3.68035,
+        422.32871,
+        3.68035
+      ],
+      "segments": [
+        1,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "type": "shape",
+      "background": "#FEB64D",
+      "gradient": "linear.west",
+      "gradientColor": "#FEB64D",
+      "visible": false,
+      "opacity": 0.49,
+      "shadow": true,
+      "shadowColor": "#FEB64D",
+      "shadowBlur": 24,
+      "shadowOffsetX": -1,
+      "shadowOffsetY": 0,
+      "points": [
+        257.19988,
+        29.13341,
+        257.19988,
+        29.13341,
+        312.0902,
+        23.12415,
+        318.32265,
+        24.11997,
+        324.55511,
+        25.11579,
+        324.55511,
+        31.86333,
+        318.32265,
+        33.11669,
+        312.0902,
+        34.37005,
+        257.19988,
+        29.13341,
+        257.19988,
+        29.13341
+      ],
+      "segments": [
+        1,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

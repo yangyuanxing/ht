@@ -1,0 +1,28 @@
+{
+  "modified": "Thu Sep 05 2019 17:37:46 GMT+0800 (中国标准时间)",
+  "width": 128,
+  "height": 16,
+  "attachStyle": "close",
+  "comps": [
+    {
+      "type": "roundRect",
+      "background": "rgba(255,184,77,0.00)",
+      "borderColor": "#979797",
+      "gradient": "spread.horizontal",
+      "gradientColor": "rgb(241,125,164)",
+      "cornerRadius": 1,
+      "shadow": true,
+      "shadowColor": "#FEB64D",
+      "shadowBlur": 2,
+      "shadowOffsetX": 0,
+      "shadowOffsetY": 0,
+      "rotation": -3.14159,
+      "rect": [
+        2.92559,
+        7.00005,
+        121.98839,
+        2
+      ]
+    }
+  ]
+}

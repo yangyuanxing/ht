@@ -1,0 +1,259 @@
+{
+  "modified": "Tue Dec 24 2019 14:07:57 GMT+0800 (中国标准时间)",
+  "background": "#000413",
+  "dataBindings": [
+    {
+      "attr": "visible1",
+      "valueType": "Boolean",
+      "defaultValue": true
+    },
+    {
+      "attr": "visible2",
+      "valueType": "Boolean",
+      "defaultValue": true
+    },
+    {
+      "attr": "visible3",
+      "valueType": "Boolean",
+      "defaultValue": true
+    },
+    {
+      "attr": "visible4",
+      "valueType": "Boolean",
+      "defaultValue": true
+    },
+    {
+      "attr": "visible5",
+      "valueType": "Boolean",
+      "defaultValue": true
+    }
+  ],
+  "width": 450,
+  "height": 100,
+  "comps": [
+    {
+      "type": "border",
+      "color": "rgba(189,194,199,0.7)",
+      "width": 1,
+      "rect": [
+        25,
+        30,
+        400,
+        40
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#051A22",
+      "borderColor": "#979797",
+      "rect": [
+        36.98969,
+        44.5,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": {
+        "func": "__ht__function(data, view) {\nlet flag = data.a('visible1');\r\nreturn flag ? '#2DD6AB' : ''\n}",
+        "value": "#28D1A6"
+      },
+      "borderColor": "#979797",
+      "rect": [
+        294.02954,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": {
+        "func": "__ht__function(data, view) {\nlet flag = data.a('visible2');\r\nreturn flag ? '#34D7AD' : ''\n}",
+        "value": "#27CCA3"
+      },
+      "borderColor": "#979797",
+      "rect": [
+        278.90955,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": {
+        "func": "__ht__function(data, view) {\nlet flag = data.a('visible3');\r\nreturn flag ? '#3DD9B1' : ''\n}",
+        "value": "#25C49D"
+      },
+      "borderColor": "#979797",
+      "rect": [
+        263.78956,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": {
+        "func": "__ht__function(data, view) {\nlet flag = data.a('visible4');\r\nreturn flag ? '#23BA95' : ''\n}",
+        "value": "#23BA95"
+      },
+      "borderColor": "#979797",
+      "rect": [
+        248.66957,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": {
+        "func": "__ht__function(data, view) {\nlet flag = data.a('visible5');\r\nreturn flag ? '#20A889' : ''\n}",
+        "value": "#20A889"
+      },
+      "borderColor": "#979797",
+      "rect": [
+        233.54957,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#1D987D",
+      "borderColor": "#979797",
+      "rect": [
+        218.42958,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#18816D",
+      "borderColor": "#979797",
+      "rect": [
+        203.30959,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#146B5D",
+      "borderColor": "#979797",
+      "rect": [
+        188.1896,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#125F56",
+      "borderColor": "#979797",
+      "rect": [
+        173.06961,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#10574F",
+      "borderColor": "#979797",
+      "rect": [
+        157.94962,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#0F524C",
+      "borderColor": "#979797",
+      "rect": [
+        142.82963,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#0F4D48",
+      "borderColor": "#979797",
+      "rect": [
+        127.70964,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#0D4642",
+      "borderColor": "#979797",
+      "rect": [
+        112.58965,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#0B3D3C",
+      "borderColor": "#979797",
+      "rect": [
+        97.46965,
+        44.5,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#093234",
+      "borderColor": "#979797",
+      "rect": [
+        82.34966,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#07272C",
+      "borderColor": "#979797",
+      "rect": [
+        67.22967,
+        44.9379,
+        11,
+        11
+      ]
+    },
+    {
+      "type": "rect",
+      "background": "#041E25",
+      "borderColor": "#979797",
+      "rect": [
+        52.10968,
+        44.5,
+        11,
+        11
+      ]
+    }
+  ]
+}

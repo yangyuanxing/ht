@@ -1,0 +1,47 @@
+{
+  "width": 32,
+  "height": 64,
+  "boundExtend": 24,
+  "comps": [
+    {
+      "type": "shape",
+      "background": "rgb(67,217,167)",
+      "gradient": "linear.west",
+      "gradientColor": "rgb(70,130,177)",
+      "shadow": true,
+      "shadowColor": "rgb(108,230,190)",
+      "shadowBlur": 24,
+      "shadowOffsetX": 0,
+      "shadowOffsetY": 0,
+      "rotation": 4.71239,
+      "points": [
+        -10.4174,
+        35.09188,
+        -10.4174,
+        35.09188,
+        32.63968,
+        30.08491,
+        37.52854,
+        30.91463,
+        42.4174,
+        31.74436,
+        42.4174,
+        37.36648,
+        37.52854,
+        38.41079,
+        32.63968,
+        39.4551,
+        -10.4174,
+        35.09188,
+        -10.4174,
+        35.09188
+      ],
+      "segments": [
+        1,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

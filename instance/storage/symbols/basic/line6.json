@@ -1,0 +1,20 @@
+{
+  "modified": "Mon Dec 23 2019 15:22:39 GMT+0800 (中国标准时间)",
+  "width": 200,
+  "height": 100,
+  "comps": [
+    {
+      "type": "rect",
+      "background": "#08D8F2",
+      "borderColor": "#979797",
+      "gradient": "linear.west",
+      "gradientColor": "#1b5fdf",
+      "rect": [
+        41,
+        48,
+        118,
+        2
+      ]
+    }
+  ]
+}

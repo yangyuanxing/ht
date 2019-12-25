@@ -1,0 +1,45 @@
+{
+  "modified": "Mon Dec 23 2019 14:43:39 GMT+0800 (中国标准时间)",
+  "dataBindings": [],
+  "width": 200,
+  "height": 200,
+  "disableSelectedBorder": true,
+  "comps": [
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "#979797",
+      "border3dColor": null,
+      "dashColor": null,
+      "pixelPerfect": true,
+      "points": [
+        23.13883,
+        22.28642,
+        30.16658,
+        51.80298,
+        59.68313,
+        103.10556,
+        59.68313,
+        103.10556,
+        59.68313,
+        103.10556,
+        80.06361,
+        135.08182,
+        102.55241,
+        149.48871,
+        125.04122,
+        163.8956,
+        149.63834,
+        160.73311,
+        149.63834,
+        160.73311
+      ],
+      "segments": [
+        1,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

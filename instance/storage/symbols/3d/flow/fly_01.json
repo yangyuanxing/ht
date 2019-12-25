@@ -1,0 +1,47 @@
+{
+  "modified": "Wed Sep 04 2019 16:02:55 GMT+0800 (中国标准时间)",
+  "width": 8,
+  "height": 128,
+  "attachStyle": "close",
+  "comps": [
+    {
+      "type": "shape",
+      "background": "rgba(255,184,77,0.00)",
+      "gradient": "linear.northeast",
+      "gradientColor": "rgb(255,184,77)",
+      "shadow": true,
+      "shadowColor": "#FEB64D",
+      "shadowBlur": 2,
+      "shadowOffsetX": 0,
+      "shadowOffsetY": 0,
+      "rotation": 4.71239,
+      "points": [
+        -57.17254,
+        64.01849,
+        63.33532,
+        62.9921,
+        63.33532,
+        62.9921,
+        65.17254,
+        63.51448,
+        65.17254,
+        64.01843,
+        65.17254,
+        64.52238,
+        63.33533,
+        65.0079,
+        63.33533,
+        65.0079,
+        -57.17254,
+        64.01849
+      ],
+      "segments": [
+        1,
+        2,
+        4,
+        4,
+        2
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Preview Display</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="custom/images/favicon.ico?v=2" />
+        <style>
+            html, body {
+                padding: 0px;
+                margin: 0px;
+            }
+        </style>
+
+        <!-- <script src='../custom/configs/htconfig.js'></script>
+        <script src='../custom/libs/echarts.js'></script> -->
+        <script src='./libs/ht.js'></script>
+        <!-- <script src='../libs/ht-edgetype.js'></script>
+        <script src='../libs/ht-obj.js'></script> -->
+        <script src='../libs/ht-ui.js'></script>
+        <!-- <script src='../libs/ht-vector.js'></script> -->
+        <!-- <script src="./libs/ht-flow.js"></script>
+        <script src="./libs/ht-animation.js"></script>
+        <script src="./libs/texture.js"></script> -->
+
+        <script>
+            function init() {
+                dataModel = new ht.DataModel();
+                graphView = new ht.graph.GraphView(dataModel);
+
+                g3dDataModel = new ht.DataModel();
+                g3d = new ht.graph3d.Graph3dView(g3dDataModel);
+                
+                g3d.addToDOM(); 
+                
+                graphView.addToDOM(g3d.getView());
+
+                ht.Default.xhrLoad(['scenes/car.json','displays/industry/water treatment.json'], function(res) {
+                    // var json = ht.Default.parse(text);
+                    // if(json.title) document.title = json.title;
+                    g3dDataModel.deserialize(res[0]);
+                    g3d.setEye([-2500, 2000, 0]);
+                    dataModel.deserialize(res[1]);
+                    // const ball = dataModel.getDataByTag('ball')
+                    // ball.s('onClick', ballClick )
+                    // // console.log(ball)
+                    // ball.s('interactive', true)
+                    // function ballClick() {
+                    //     fetch('http://localhost:5050/getColor',{
+                    //         method:'get'
+                    //     })
+                    //     .then( res => res.json())
+                    //     .then( data => {
+                    //         ball.s('shape3d.color', data.data)
+                    //     } )
+                    //     const p3d = ball.p3();
+                    //     console.log(p3d)
+                    //     ball.p3( p3d[0] + Math.random()*1000,p3d[1],p3d[2] + Math.random()*1000 )
+                    // }
+
+                    const car = g3dDataModel.getDataByTag('car');
+
+                    window.addEventListener('keydown', (e) => {
+                        ht.Default.preventDefault(e);
+                        carP3 = car.p3();
+                        // console.log(carP3)
+                        if (e.key == 'ArrowUp' || e.key == 'w') {
+                            car.p3(carP3[0] + 100, carP3[1],carP3[2])
+                        }
+                        if (e.key == 'ArrowDown' || e.key == 's') {
+                            car.p3(carP3[0] - 100, carP3[1],carP3[2])
+                        }
+                        if (e.key == 'ArrowLeft' || e.key == 'a') {
+                            car.p3(carP3[0], carP3[1],carP3[2] - 100)
+                        }
+                        if (e.key == 'ArrowRight' || e.key == 'd') {
+                            car.p3(carP3[0], carP3[1],carP3[2] + 100)
+                        }
+                    })
+                });
+            }
+        </script>
+    </head>
+    <body onload='setTimeout(init, 300)'>
+    </body>
+</html>
